@@ -101,7 +101,8 @@ Claude Code, GitLens, GitHub PR & Actions, Tailwind IntelliSense, ESLint, Pretti
 | 25.08.2026 | `MCP_НАСТРОЙКА.md`: неофициальный `supabase-mcp` заменён на `@supabase/mcp-server-supabase@latest` | `grep supabase-mcp MCP_НАСТРОЙКА.md` → пусто |
 | 25.08.2026 | `CLAUDE.md` в ZAI и AlphaProjects | файлы на месте, 25 и 21 строка |
 | 25.08.2026 | `ZAI/publish-wishlist.sh` — публикация книги в репозиторий одной командой | этот файл опубликован им же |
-| 25.08.2026 | Тикеты агентов: миграция `maks-finance-center/supabase/migrations/20260825_agent_tickets.sql` — таблица `agent_tickets`, функции `ticket()` / `ticket_done()`, витрина `v_open_tickets` | ⚠️ файл написан, **в живую базу не применён** — у агента нет доступа к базе до перезапуска. Приёмка расписана в конце миграции |
+| 25.08.2026 | Тикеты агентов: таблица `agent_tickets`, функции `ticket()` / `ticket_done()`, витрина `v_open_tickets` | ✅ **ПРИМЕНЕНО В ЖИВУЮ БАЗУ** и проверено: тикет создался (id 1), `v_open_tickets` его показал, `update ... set status='done'` без основания **отклонён** constraint-ом `agent_tickets_closed_has_reason`, `ticket_done()` закрыл штатно, открытых осталось 0 |
+| 25.08.2026 | Токены и права у Макса: fine-grained PAT + разрешающие правила | `/mcp` → supabase, context7, chrome-devtools, playwright и `plugin:github:github` **connected**; `get_me` вернул `alfagang838`. Не подключены только неиспользуемые коннекторы claude.ai (Gmail, Drive, Canva, Booking, Glovo, Economic Index) — им нужна отдельная авторизация, для работы они не нужны |
 | 25.08.2026 | Правило тикетов в `OpengravityProjects/CLAUDE.md` и `ZAI/CLAUDE.md` | взамен ужат абзац истории про handoff-форму (6 строк → 3) |
 | 25.08.2026 | `ЗАЯВКА`: инструкция Максу по fine-grained PAT и правам, пути сверены с docs.github.com в тот же день | `ZAI/ИНСТРУКЦИЯ_МАКСУ_ТОКЕН_И_ПРАВА.md` |
 
