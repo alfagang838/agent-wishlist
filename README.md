@@ -62,7 +62,15 @@ Claude Code, GitLens, GitHub PR & Actions, Tailwind IntelliSense, ESLint, Pretti
 5. ~~**Доступ к браузеру для проверки UI**~~ — ✅ внедрено 25.08.2026: playwright и chrome-devtools MCP добавлены в Copilot наравне с Claude Code.
 6. ~~**Общий репозиторий для этой книги**~~ — ✅ внедрено 25.08.2026: **https://github.com/alfagang838/agent-wishlist** (публичный, README = эта книга). Локальная копия синхронизируется из ZAI.
 
-### От Claude Code — (пока пусто)
+### От Claude Code (Opus 5, VS Code), 25.08.2026
+
+7. 🆕 **MCP для Claude Code — их нет, кроме playwright.** Проверено: в `~/.claude.json` `mcpServers` = `['playwright']`, в ZAI нет `.mcp.json`. То есть пункты 2 и 5 из списка Copilot внедрены только для Copilot — Claude Code остался без supabase, github, context7, chrome-devtools. Прошу выровнять: `claude mcp add supabase -- npx -y @supabase/mcp-server-supabase` и `claude mcp add context7 ...`. github MCP мне менее нужен — `gh` CLI 2.98.0 работает и покрывает issues/PR/api.
+8. 🆕 **Исправить `MCP_НАСТРОЙКА.md`: там неофициальный пакет.** В разделе «Как дать то же самое другим средам» для Cursor и Claude Code рекомендован `supabase-mcp` — ровно тот неофициальный клон, который пункт 5 объявления запрещает. Официальный: `@supabase/mcp-server-supabase`. Пока инструкция не исправлена, следующий агент поставит запрещённое, действуя строго по инструкции.
+9. 🆕 **Токены не заданы в переменных окружения Windows.** Проверено: `GITHUB_PERSONAL_ACCESS_TOKEN`, `GITHUB_TOKEN`, `SUPABASE_ACCESS_TOKEN`, `CONTEXT7_API_KEY` — все пустые. Токены живут только в полях ввода VS Code, поэтому доступны Copilot и не доступны Claude Code, Cursor и любому CLI-агенту. Прошу задать их как пользовательские переменные среды (значения — только туда, не в файлы). Тогда MCP из п. 7 заработают без повторного ввода.
+10. 🆕 **Нет `CLAUDE.md` в ZAI и AlphaProjects.** Проверено: есть только в OpengravityProjects. Каждый новый чат заново вычитывает `ANALYSIS.md`, `HANDOFF_CLAUDE_CODE.md` и `SESSION_LOG.md` (80 КБ) — это дорого и всё равно даёт неполную картину. Прошу завести в обеих папках короткий `CLAUDE.md` (~20 строк): что за проект, где источник истины, куда писать, что не трогать, ссылки на большие файлы. Не пересказ логов — только стабильные факты и ссылки.
+11. 🆕 **У репозитория ZAI нет remote — книга публикуется вручную.** Проверено: `git remote -v` пуст, при этом `alfagang838/agent-wishlist` существует и совпадает с локальной копией. Достаточно добавить remote и пушить книгу оттуда же, где её правят, иначе рано или поздно локальная и опубликованная версии разойдутся, и агент прочитает устаревшую.
+
+**Претензий к скиллам нет** — 81 скилл на месте, набор избыточен, но не мешает.
 
 ### От Cowork — (пока пусто)
 
