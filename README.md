@@ -42,15 +42,11 @@ Claude Code, GitLens, GitHub PR & Actions, Tailwind IntelliSense, ESLint, Pretti
 ### От Copilot (VS Code), 25.08.2026
 
 1. ~~**Установить Supabase CLI**~~ — ✅ внедрено 25.08.2026 (`supabase --version` → 2.115.0, см. раздел 3).
-2. **Настроить MCP в VS Code Copilot** — сейчас есть только playwright в Claude Code. Хочется:
-   - `github` MCP (issues, PR, поиск по репо),
-   - `supabase` MCP (запросы к живой базе из чата),
-   - `context7` MCP (свежая документация библиотек вместо устаревших знаний).
-   👀 на рассмотрении — требует ключей/решения Макса.
+2. ~~**Настроить MCP в VS Code Copilot**~~ — ✅ внедрено 25.08.2026: в `mcp.json` добавлены github (официальный GitHub MCP), supabase, playwright, chrome-devtools, context7. JSON валиден. Осталось ввести 2 токена — инструкция `ZAI/MCP_НАСТРОЙКА.md`.
 3. ~~**Убрать дубли AI-агентов**~~ — ✅ внедрено 25.08.2026: удалены Continue, Roo-Cline, Cline (осталось 25 расширений, Claude Code + Copilot покрывают всё).
 4. ~~**settings.json почти пустой**~~ — ✅ внедрено 25.08.2026: formatOnSave + Prettier по умолчанию для js/ts/json/css/html, search.exclude для node_modules/.next/dist, eslint.workingDirectories. JSON проверен на валидность.
-5. **Доступ к браузеру для проверки UI** — playwright MCP есть только у Claude Code; Copilot в VS Code им не пользуется. Либо настроить тот же MCP для Copilot, либо принять, что визуальную приёмку делает Claude Code.
-6. **Общий репозиторий для этой книги** — чтобы любой чат мог ссылаться на неё по URL и предлагать PR с пожеланиями. Кандидат: `alfagang838/agent-wishlist`.
+5. ~~**Доступ к браузеру для проверки UI**~~ — ✅ внедрено 25.08.2026: playwright и chrome-devtools MCP добавлены в Copilot наравне с Claude Code.
+6. ~~**Общий репозиторий для этой книги**~~ — ✅ внедрено 25.08.2026: **https://github.com/alfagang838/agent-wishlist** (публичный, README = эта книга). Локальная копия синхронизируется из ZAI.
 
 ### От Claude Code — (пока пусто)
 
@@ -65,6 +61,13 @@ Claude Code, GitLens, GitHub PR & Actions, Tailwind IntelliSense, ESLint, Pretti
 | 25.08.2026 | Supabase CLI установлен глобально | `supabase --version` → 2.115.0 |
 | 25.08.2026 | Удалены дубли AI-агентов: Continue, Roo-Cline, Cline | `code --list-extensions` — их нет, 25 расширений, ничего лишнего не задето |
 | 25.08.2026 | settings.json: formatOnSave, Prettier по умолчанию (js/ts/jsx/tsx/json/css/html), search.exclude (node_modules/.next/dist/build/coverage/_snapshots), eslint.workingDirectories | JSON валиден (`ConvertFrom-Json` OK) |
+| 25.08.2026 | MCP для Copilot: github, supabase, playwright, chrome-devtools, context7 в `mcp.json` | JSON валиден; ввод токенов — за Максом, см. `MCP_НАСТРОЙКА.md` |
+| 25.08.2026 | Репозиторий книги пожеланий: alfagang838/agent-wishlist | запушен, https://github.com/alfagang838/agent-wishlist |
+
+### 🔑 Что осталось от Макса (5 минут)
+1. GitHub PAT → https://github.com/settings/tokens/new (скоупы repo, read:org)
+2. Supabase token → https://supabase.com/dashboard/account/tokens
+3. Ввести оба в VS Code при первом запросе MCP (подробно — `MCP_НАСТРОЙКА.md`, там же шаблон для Cursor)
 
 ---
 
