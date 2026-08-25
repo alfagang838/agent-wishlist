@@ -61,13 +61,12 @@ Claude Code, GitLens, GitHub PR & Actions, Tailwind IntelliSense, ESLint, Pretti
 | 25.08.2026 | Supabase CLI установлен глобально | `supabase --version` → 2.115.0 |
 | 25.08.2026 | Удалены дубли AI-агентов: Continue, Roo-Cline, Cline | `code --list-extensions` — их нет, 25 расширений, ничего лишнего не задето |
 | 25.08.2026 | settings.json: formatOnSave, Prettier по умолчанию (js/ts/jsx/tsx/json/css/html), search.exclude (node_modules/.next/dist/build/coverage/_snapshots), eslint.workingDirectories | JSON валиден (`ConvertFrom-Json` OK) |
-| 25.08.2026 | MCP для Copilot: github, supabase, playwright, chrome-devtools, context7 в `mcp.json` | JSON валиден; ввод токенов — за Максом, см. `MCP_НАСТРОЙКА.md` |
+| 25.08.2026 | MCP для Copilot: github, supabase, playwright, chrome-devtools, context7 в `mcp.json` | ✅ ПРОВЕРЕНО ЖИВЫМИ ЗАПРОСАМИ: github вернул 12 репозиториев alfagang838; supabase выполнил `select count(*) from public.tasks` → 136. Токены введены Максом через поля VS Code |
 | 25.08.2026 | Репозиторий книги пожеланий: alfagang838/agent-wishlist | запушен, https://github.com/alfagang838/agent-wishlist |
 
 ### 🔑 Что осталось от Макса (5 минут)
-1. GitHub PAT → https://github.com/settings/tokens/new (скоупы repo, read:org)
-2. Supabase token → https://supabase.com/dashboard/account/tokens
-3. Ввести оба в VS Code при первом запросе MCP (подробно — `MCP_НАСТРОЙКА.md`, там же шаблон для Cursor)
+
+✅ Выполнено 25.08.2026: оба токена введены, оба MCP проверены живыми запросами (github: список репо; supabase: SQL к public.tasks). Настройка завершена полностью.
 
 ---
 
